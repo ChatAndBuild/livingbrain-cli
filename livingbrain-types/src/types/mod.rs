@@ -6,7 +6,7 @@
 //! ## Type Categories
 //!
 //! - **Request/Response Types**: 59 types for API operations
-//! - **Model Types**: 61 types for data representation
+//! - **Model Types**: 62 types for data representation
 
 pub mod captures_capture_chat_turn_request_sender;
 pub mod captures_list_sources_captures_request_status;
@@ -39,6 +39,7 @@ pub mod source_list;
 pub mod source_retry_response;
 pub mod search_result_page_type;
 pub mod search_result_status;
+pub mod search_result_matched_on;
 pub mod search_result;
 pub mod index_entry_page_type;
 pub mod index_entry_status;
@@ -160,6 +161,7 @@ pub use source_list::SourceList;
 pub use source_retry_response::SourceRetryResponse;
 pub use search_result_page_type::SearchResultPageType;
 pub use search_result_status::SearchResultStatus;
+pub use search_result_matched_on::SearchResultMatchedOn;
 pub use search_result::SearchResult;
 pub use index_entry_page_type::IndexEntryPageType;
 pub use index_entry_status::IndexEntryStatus;

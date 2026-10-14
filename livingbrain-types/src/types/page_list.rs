@@ -2,7 +2,7 @@ pub use crate::prelude::*;
 #[allow(unused_imports)]
 use super::*;
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default, PartialEq, Eq, Hash)]
 pub struct PageList {
     /// The pages on this page of results.
     #[serde(default)]

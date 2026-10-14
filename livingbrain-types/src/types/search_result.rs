@@ -26,6 +26,9 @@ pub struct SearchResult {
     #[serde(default)]
     #[serde(with = "crate::core::number_serializers")]
     pub similarity: f64,
+    /// Why the page matched: semantic similarity, keyword (title/summary/body words), or both. Keyword matches are returned even when similarity is below minSimilarity.
+    #[serde(rename = "matchedOn")]
+    pub matched_on: SearchResultMatchedOn,
 }
 
 impl SearchResult {
@@ -44,6 +47,7 @@ pub struct SearchResultBuilder {
     page_type: Option<SearchResultPageType>,
     status: Option<SearchResultStatus>,
     similarity: Option<f64>,
+    matched_on: Option<SearchResultMatchedOn>,
 }
 
 impl SearchResultBuilder {
@@ -82,6 +86,11 @@ impl SearchResultBuilder {
         self
     }
 
+    pub fn matched_on(mut self, value: SearchResultMatchedOn) -> Self {
+        self.matched_on = Some(value);
+        self
+    }
+
     /// Consumes the builder and constructs a [`SearchResult`].
     /// This method will fail if any of the following fields are not set:
     /// - [`page_id`](SearchResultBuilder::page_id)
@@ -91,6 +100,7 @@ impl SearchResultBuilder {
     /// - [`page_type`](SearchResultBuilder::page_type)
     /// - [`status`](SearchResultBuilder::status)
     /// - [`similarity`](SearchResultBuilder::similarity)
+    /// - [`matched_on`](SearchResultBuilder::matched_on)
     pub fn build(self) -> Result<SearchResult, BuildError> {
         Ok(SearchResult {
             page_id: self.page_id.ok_or_else(|| BuildError::missing_field("page_id"))?,
@@ -100,6 +110,7 @@ impl SearchResultBuilder {
             page_type: self.page_type.ok_or_else(|| BuildError::missing_field("page_type"))?,
             status: self.status.ok_or_else(|| BuildError::missing_field("status"))?,
             similarity: self.similarity.ok_or_else(|| BuildError::missing_field("similarity"))?,
+            matched_on: self.matched_on.ok_or_else(|| BuildError::missing_field("matched_on"))?,
         })
     }
 }

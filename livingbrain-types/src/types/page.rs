@@ -2,7 +2,7 @@ pub use crate::prelude::*;
 #[allow(unused_imports)]
 use super::*;
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub struct Page {
     /// Page id
     #[serde(default)]
@@ -51,9 +51,6 @@ pub struct Page {
     /// Wikilink slugs referenced by the body
     #[serde(default)]
     pub backlinks: Vec<String>,
-    /// Vector embedding used for semantic search (internal; can be large)
-    #[serde(default)]
-    pub embedding: Vec<f64>,
     /// Monotonic version, bumped on every compile/edit
     #[serde(default)]
     pub version: i64,
@@ -112,7 +109,6 @@ pub struct PageBuilder {
     entities: Option<Vec<String>>,
     sources: Option<Vec<PageSourceRef>>,
     backlinks: Option<Vec<String>>,
-    embedding: Option<Vec<f64>>,
     version: Option<i64>,
     pinned: Option<bool>,
     archived: Option<bool>,
@@ -199,11 +195,6 @@ impl PageBuilder {
         self
     }
 
-    pub fn embedding(mut self, value: Vec<f64>) -> Self {
-        self.embedding = Some(value);
-        self
-    }
-
     pub fn version(mut self, value: i64) -> Self {
         self.version = Some(value);
         self
@@ -260,7 +251,6 @@ impl PageBuilder {
     /// - [`entities`](PageBuilder::entities)
     /// - [`sources`](PageBuilder::sources)
     /// - [`backlinks`](PageBuilder::backlinks)
-    /// - [`embedding`](PageBuilder::embedding)
     /// - [`version`](PageBuilder::version)
     /// - [`pinned`](PageBuilder::pinned)
     /// - [`archived`](PageBuilder::archived)
@@ -285,7 +275,6 @@ impl PageBuilder {
             entities: self.entities.ok_or_else(|| BuildError::missing_field("entities"))?,
             sources: self.sources.ok_or_else(|| BuildError::missing_field("sources"))?,
             backlinks: self.backlinks.ok_or_else(|| BuildError::missing_field("backlinks"))?,
-            embedding: self.embedding.ok_or_else(|| BuildError::missing_field("embedding"))?,
             version: self.version.ok_or_else(|| BuildError::missing_field("version"))?,
             pinned: self.pinned.ok_or_else(|| BuildError::missing_field("pinned"))?,
             archived: self.archived.ok_or_else(|| BuildError::missing_field("archived"))?,
