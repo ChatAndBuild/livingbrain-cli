@@ -382,7 +382,7 @@ impl BrainsClient {
             .await
     }
 
-    /// Generate this brain's daily brief immediately instead of waiting for its scheduled run. Returns the brief content once generation completes.
+    /// Generate this brain's daily brief immediately instead of waiting for its scheduled run. Returns the generated brief page's id and slug, or `null` when the last 7 days had no activity to brief.
     ///
     /// # Arguments
     ///
@@ -412,7 +412,7 @@ impl BrainsClient {
         &self,
         brain_id: &str,
         options: Option<RequestOptions>,
-    ) -> Result<BriefRunResponse, ApiError> {
+    ) -> Result<Option<BriefRunResponse>, ApiError> {
         self.http_client
             .execute_request(
                 Method::POST,

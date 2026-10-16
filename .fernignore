@@ -1,2 +1,4 @@
 # Files owned by the user — fern generate will not overwrite these.
 cli/livingbrain/custom.rs
+README.md
+tests/auth_headers.rs

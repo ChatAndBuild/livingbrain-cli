@@ -43,10 +43,18 @@ cargo build --release
 
 ## Authentication
 
-Set the following environment variable(s) before using the CLI:
+Every request needs two values. Set them as environment variables, or pass the matching flag on any command:
+
+| Value | Env var | Flag | Header sent |
+|-------|---------|------|-------------|
+| API key | `LIVING_BRAIN_API_KEY` | `--api-key` | `x-api-key` |
+| Subject ID (required) | `LIVING_BRAIN_SUBJECT_ID` | `--subject-id` | `x-subject-id` |
+
+The subject ID identifies the end user you're acting on behalf of and must be a UUID. Brains are owned by a subject, so it determines which brains the CLI can see.
 
 ```bash
 export LIVING_BRAIN_API_KEY="<your api key>"
+export LIVING_BRAIN_SUBJECT_ID="3f2b8c1e-7a4d-4e9b-9c2a-5d6e7f8a9b0c"
 ```
 
 A `.env` file in the working directory is also supported — the CLI auto-loads it on startup.

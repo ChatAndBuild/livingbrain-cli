@@ -21,8 +21,8 @@ fn main() {
             optional: false,
             apply: GlobalParameterApplyMode::Auto,
             parameter_name: Some("subjectId".into()),
-            docs: Some("Identifies the end user the request is made on behalf of. Brains are owned by a
-subject, so this determines which brains the caller can see.".into()),
+            docs: Some("Identifies the end user the request is made on behalf of. Must be a UUID. Brains are
+owned by a subject, so this determines which brains the caller can see.".into()),
         })
         .binding(
             OpenApiBinding::new()
