@@ -63,7 +63,7 @@ Soft-delete a brain and disable its active data.
 
 #### `livingbrain brains run-brief`
 
-Generate this brain's daily brief immediately instead of waiting for its scheduled run. Returns the brief content once generation completes.
+Generate this brain's daily brief immediately instead of waiting for its scheduled run. Returns the generated brief page's id and slug, or `null` when the last 7 days had no activity to brief.
 
 `POST /v1/brains/{brainId}/brief/run`
 
