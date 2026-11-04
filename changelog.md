@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.3] - 2026-11-04
+
+- Updated repository metadata and installer links after the CLI moved to `ChatAndBuild`.
+- Prepared the public multi-platform GitHub release.
+
 ## [0.2.1] - 2026-10-16
 
 - Fixed: authenticated commands now send `x-api-key`. The spec declared auth as `apiKey AND subject`, but `x-subject-id` is a global header rather than an auth scheme, so per-endpoint auth routing found no `subject` provider and attached no API key (only `x-subject-id` went out and every call returned 401). The auth requirement is now the API key alone.

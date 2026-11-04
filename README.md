@@ -1,6 +1,6 @@
 # Living Brain Service CLI
 
-[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-CLI%20generated%20by%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Ffern-demo%2Flivingbrain-cli)
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-CLI%20generated%20by%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2FChatAndBuild%2Flivingbrain-cli)
 
 Command-line interface for the Living Brain Service API.
 
@@ -23,13 +23,13 @@ Command-line interface for the Living Brain Service API.
 ### Shell (macOS / Linux)
 
 ```bash
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/fern-demo/livingbrain-cli/releases/latest/download/livingbrain-cli-installer.sh | sh
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/ChatAndBuild/livingbrain-cli/releases/latest/download/livingbrain-cli-installer.sh | sh
 ```
 
 ### PowerShell (Windows)
 
 ```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://github.com/fern-demo/livingbrain-cli/releases/latest/download/livingbrain-cli-installer.ps1 | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://github.com/ChatAndBuild/livingbrain-cli/releases/latest/download/livingbrain-cli-installer.ps1 | iex"
 ```
 
 ### Build from source
