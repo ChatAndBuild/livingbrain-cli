@@ -1,10 +1,10 @@
 [package]
 name = "livingbrain-cli"
-version = "0.2.2"
+version = "0.2.3"
 edition = "2021"
 description = "Command-line interface for the Living Brain API"
 license = "Apache-2.0"
-repository = "https://github.com/fern-demo/livingbrain-cli"
+repository = "https://github.com/ChatAndBuild/livingbrain-cli"
 homepage = "https://docs.livingbrain.com"
 authors = ["Fern <hey@buildwithfern.com>"]
 keywords = ["cli", "openapi", "graphql", "fern", "codegen"]

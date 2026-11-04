@@ -2,3 +2,6 @@
 cli/livingbrain/custom.rs
 README.md
 tests/auth_headers.rs
+.fern/replay.lock
+.fern/replay.yml
+.gitattributes
